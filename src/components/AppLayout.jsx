@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 function AppLayout() {
   return (
@@ -6,10 +7,8 @@ function AppLayout() {
       <header className="sticky top-0 z-40 bg-white border-b border-[#E2E8F0]">
         <div className="mx-auto w-full px-4 sm:px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] font-bold">
-              M
-            </div>
-            <div className="font-extrabold tracking-tight text-lg">MatEquity</div>
+            <img src={logo} alt="MatEquity" className="h-9 w-9 rounded-xl object-contain" />
+            <div className="font-extrabold tracking-tight text-lg">MayaCare</div>
           </div>
           <nav className="flex flex-wrap items-center gap-3 text-sm font-semibold">
             <Link className="text-[#2563EB] hover:text-[#1D4ED8]" to="/dashboard">
