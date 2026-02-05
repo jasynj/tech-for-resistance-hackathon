@@ -1,9 +1,5 @@
-function Timeline() {
-  return (
-    <div>
-      <h1>Timeline</h1>
-    </div>
-  );
-}
+import CareTimeline from './CareTimeline';
 
-export default Timeline;
+export default function Timeline() {
+  return <CareTimeline />;
+}
