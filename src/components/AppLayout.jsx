@@ -2,19 +2,35 @@ import { Link, Outlet } from 'react-router-dom';
 
 function AppLayout() {
   return (
-    <div>
-      <nav style={{
-        padding: '1rem',
-        borderBottom: '1px solid #ccc',
-        marginBottom: '2rem'
-      }}>
-        <Link to="/dashboard" style={{ marginRight: '1rem' }}>Dashboard</Link>
-        <Link to="/symptoms" style={{ marginRight: '1rem' }}>Symptoms</Link>
-        <Link to="/timeline" style={{ marginRight: '1rem' }}>Timeline</Link>
-        <Link to="/advocacy" style={{ marginRight: '1rem' }}>Advocacy</Link>
-        <Link to="/education" style={{ marginRight: '1rem' }}>Education</Link>
-      </nav>
-      <main style={{ padding: '1rem' }}>
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
+      <header className="sticky top-0 z-40 bg-white border-b border-[#E2E8F0]">
+        <div className="mx-auto w-full px-4 sm:px-6 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] font-bold">
+              M
+            </div>
+            <div className="font-extrabold tracking-tight text-lg">MatEquity</div>
+          </div>
+          <nav className="flex flex-wrap items-center gap-3 text-sm font-semibold">
+            <Link className="text-[#2563EB] hover:text-[#1D4ED8]" to="/dashboard">
+              Dashboard
+            </Link>
+            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/symptoms">
+              Symptoms
+            </Link>
+            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/timeline">
+              Timeline
+            </Link>
+            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/advocacy">
+              Advocacy
+            </Link>
+            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/education">
+              Education
+            </Link>
+          </nav>
+        </div>
+      </header>
+      <main className="px-4 py-4 sm:px-6 sm:py-6">
         <Outlet />
       </main>
     </div>

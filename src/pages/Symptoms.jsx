@@ -29,49 +29,49 @@ const Symptoms = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-[#F8FAFC] px-4 py-4 sm:px-6 sm:py-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">Early Warning Symptom Checker</h1>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-3">Early Warning Symptom Checker</h1>
+          <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
             Select all symptoms that apply to you right now. Trust your body—if something feels wrong, it matters.
           </p>
-          <div className="inline-block mt-4 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+          <div className="inline-block mt-4 px-4 py-2 bg-white border border-[#E2E8F0] text-[#2563EB] rounded-full text-sm font-semibold">
             Module 1: Triage
           </div>
         </div>
 
         <div className="grid lg:grid-cols-[1fr,1.2fr] gap-6">
           {/* LEFT COL: Input */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#E2E8F0]">
             <div className="flex items-center gap-2 mb-6">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
-              <h2 className="text-xl font-bold text-slate-900">Physical Symptoms</h2>
+              <h2 className="text-xl font-bold text-[#0F172A]">Physical Symptoms</h2>
             </div>
             
             <div className="space-y-2 mb-8">
               {SYMPTOM_DATA[0].items.map((symptom) => (
                 <label 
                   key={symptom.id} 
-                  className={`flex items-start gap-3 cursor-pointer p-4 rounded-xl border-2 transition-all ${
+                  className={`flex items-start gap-3 cursor-pointer p-4 rounded-xl border transition-all ${
                     selectedSymptoms.includes(symptom.id)
-                      ? 'border-blue-500 bg-blue-50 shadow-sm'
-                      : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                      ? 'border-[#2563EB] bg-[#F8FAFC]'
+                      : 'border-[#E2E8F0] hover:border-[#2563EB]/60 hover:bg-[#F8FAFC]'
                   }`}
                 >
                   <input 
                     type="checkbox" 
-                    className="w-5 h-5 text-blue-600 rounded mt-0.5 focus:ring-2 focus:ring-blue-500"
+                    className="w-5 h-5 text-[#2563EB] rounded mt-0.5 focus:ring-2 focus:ring-[#2563EB]/30"
                     checked={selectedSymptoms.includes(symptom.id)}
                     onChange={() => toggleSymptom(symptom.id)}
                   />
                   <div className="flex-1">
-                    <div className="font-medium text-slate-900">{symptom.label.split(' (')[0]}</div>
+                    <div className="font-medium text-[#0F172A]">{symptom.label.split(' (')[0]}</div>
                     {symptom.label.includes('(') && (
-                      <div className="text-sm text-slate-500 mt-0.5">
+                      <div className="text-sm text-[#64748B] mt-0.5">
                         {symptom.label.match(/\((.*?)\)/)?.[1]}
                       </div>
                     )}
@@ -80,21 +80,21 @@ const Symptoms = () => {
               ))}
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
+            <div className="bg-[#F8FAFC] p-6 rounded-xl border border-[#E2E8F0] mb-6">
               <div className="flex justify-between items-center mb-3">
-                <label className="font-bold text-slate-900">Pain Severity (1-10)</label>
-                <span className="text-3xl font-bold text-blue-600">{painLevel}</span>
+                <label className="font-bold text-[#0F172A]">Pain Severity (1-10)</label>
+                <span className="text-3xl font-bold text-[#2563EB]">{painLevel}</span>
               </div>
               <input 
                 type="range" min="1" max="10" 
                 value={painLevel}
                 onChange={(e) => setPainLevel(parseInt(e.target.value))}
-                className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                className="w-full h-3 bg-[#E2E8F0] rounded-lg appearance-none cursor-pointer accent-[#2563EB]"
                 style={{
-                  background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(painLevel - 1) * 11.11}%, #e2e8f0 ${(painLevel - 1) * 11.11}%, #e2e8f0 100%)`
+                  background: `linear-gradient(to right, #2563EB 0%, #2563EB ${(painLevel - 1) * 11.11}%, #E2E8F0 ${(painLevel - 1) * 11.11}%, #E2E8F0 100%)`
                 }}
               />
-              <div className="flex justify-between text-xs text-slate-500 mt-2">
+              <div className="flex justify-between text-xs text-[#64748B] mt-2">
                 <span>Mild</span>
                 <span>Moderate</span>
                 <span>Severe</span>
@@ -103,7 +103,7 @@ const Symptoms = () => {
 
             <button 
               onClick={handleAssessment}
-              className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-lg"
+              className="w-full py-4 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold rounded-xl transition-all shadow-sm text-lg"
             >
               Update Assessment
             </button>
@@ -112,26 +112,26 @@ const Symptoms = () => {
           {/* RIGHT COL: Results Panel */}
           <div className="space-y-6">
             {!result ? (
-              <div className="bg-white p-12 rounded-2xl shadow-lg border border-slate-100 text-center">
-                <div className="text-slate-400 mb-4">
+              <div className="bg-white p-12 rounded-2xl shadow-sm border border-[#E2E8F0] text-center">
+                <div className="text-[#64748B] mb-4">
                   <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <p className="text-slate-600 text-lg">Select your symptoms and click <br/><strong>"Update Assessment"</strong> to see results.</p>
+                <p className="text-[#64748B] text-lg">Select your symptoms and click <br/><strong>"Update Assessment"</strong> to see results.</p>
               </div>
             ) : (
               <>
                 {/* Emergency Alert Box */}
-                <div className={`rounded-2xl shadow-xl overflow-hidden border-2 ${
+                <div className={`rounded-2xl shadow-sm overflow-hidden border ${
                   result.level === 'high' 
-                    ? 'border-red-500 bg-gradient-to-br from-red-50 to-red-100' 
+                    ? 'border-[#DC2626]/30 bg-white' 
                     : result.level === 'medium'
-                    ? 'border-yellow-500 bg-gradient-to-br from-yellow-50 to-yellow-100'
-                    : 'border-green-500 bg-gradient-to-br from-green-50 to-green-100'
+                    ? 'border-[#F59E0B]/40 bg-white'
+                    : 'border-[#2563EB]/30 bg-white'
                 }`}>
                   <div className={`p-6 ${
-                    result.level === 'high' ? 'bg-red-600' : result.level === 'medium' ? 'bg-yellow-600' : 'bg-green-600'
+                    result.level === 'high' ? 'bg-[#DC2626]' : result.level === 'medium' ? 'bg-[#F59E0B]' : 'bg-[#2563EB]'
                   }`}>
                     <div className="flex items-center gap-3">
                       {result.level === 'high' ? (
@@ -152,16 +152,16 @@ const Symptoms = () => {
                   </div>
 
                   <div className="p-6">
-                    <div className="bg-white rounded-xl p-5 mb-6 shadow-sm border border-slate-200">
-                      <p className="text-slate-900 text-lg leading-relaxed mb-3">{result.action}</p>
+                    <div className="bg-white rounded-xl p-5 mb-6 shadow-sm border border-[#E2E8F0]">
+                      <p className="text-[#0F172A] text-lg leading-relaxed mb-3">{result.action}</p>
                     </div>
 
-                    <div className="bg-white bg-opacity-80 rounded-xl p-5 mb-6">
-                      <p className="font-bold text-slate-900 mb-3">Why is this flagged?</p>
+                    <div className="bg-white rounded-xl p-5 mb-6 border border-[#E2E8F0]">
+                      <p className="font-bold text-[#0F172A] mb-3">Why is this flagged?</p>
                       <ul className="space-y-2">
                         {result.reasons.map((r, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-slate-700">
-                            <span className="text-blue-600 mt-1">•</span>
+                          <li key={idx} className="flex items-start gap-2 text-[#0F172A]">
+                            <span className="text-[#2563EB] mt-1">•</span>
                             <span>{r}</span>
                           </li>
                         ))}
@@ -170,10 +170,10 @@ const Symptoms = () => {
 
                     <div className="space-y-3">
                       {result.level === 'high' && (
-                        <button className={`w-full py-4 font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-lg flex items-center justify-center gap-2 ${
+                        <button className={`w-full py-4 font-bold rounded-xl transition-all shadow-sm text-lg flex items-center justify-center gap-2 ${
                           result.level === 'high' 
-                            ? 'bg-red-600 text-white hover:bg-red-700' 
-                            : 'bg-white border-2 border-slate-300 text-slate-700 hover:bg-slate-50'
+                            ? 'bg-[#DC2626] text-white hover:bg-[#B91C1C]' 
+                            : 'bg-white border border-[#E2E8F0] text-[#0F172A] hover:bg-[#F8FAFC]'
                         }`}>
                           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -182,9 +182,9 @@ const Symptoms = () => {
                         </button>
                       )}
                       
-                      <button 
+                      <button
                         onClick={handleAdvocacyRoute}
-                        className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl text-lg flex items-center justify-center gap-2"
+                        className="w-full py-4 bg-[#0F172A] text-white font-bold rounded-xl hover:bg-[#0F172A]/90 transition-all shadow-sm text-lg flex items-center justify-center gap-2"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -198,23 +198,23 @@ const Symptoms = () => {
             )}
 
             {/* Info Card - Know Your Rights (Always visible) */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E2E8F0]">
               <div className="flex gap-5">
                 <div className="flex-shrink-0">
                   <img 
                     src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&h=100&fit=crop&crop=face" 
                     alt="Healthcare professional"
-                    className="w-14 h-14 rounded-full object-cover border-2 border-teal-100"
+                    className="w-14 h-14 rounded-full object-cover border border-[#E2E8F0]"
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-lg mb-2">Know your rights</h4>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                  <h4 className="font-bold text-[#0F172A] text-lg mb-2">Know your rights</h4>
+                  <p className="text-[#64748B] text-sm leading-relaxed mb-4">
                     You know your body best. If you feel dismissed, use the "Advocacy Report" to show a documented timeline of your symptoms. Ask the provider to document specifically <em className="font-medium">why</em> they might be ruling out your concerns.
                   </p>
                   <a 
                     href="/advocacy" 
-                    className="text-blue-600 font-semibold text-sm hover:text-blue-700 inline-flex items-center gap-1 transition-colors"
+                    className="text-[#2563EB] font-semibold text-sm hover:text-[#1D4ED8] inline-flex items-center gap-1 transition-colors"
                   >
                     Read more about self-advocacy 
                     <span className="text-lg">→</span>
