@@ -1,0 +1,456 @@
+/* Root layout */
+.pt-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+  color: #0f172a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.pt-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Header */
+.pt-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: pt-fadeInDown 0.6s ease-out;
+}
+
+.pt-header h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.pt-header p {
+  color: #64748b;
+  font-size: 1.05rem;
+}
+
+.pt-progressIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.pt-progressIndicator::before {
+  content: '📍';
+  font-size: 1.2rem;
+}
+
+.pt-progressIndicator strong {
+  color: #1d4ed8;
+}
+
+/* Vertical layout */
+.pt-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: pt-fadeIn 0.8s ease-out 0.2s both;
+}
+
+/* Milestones bar */
+.pt-milestonesBar {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.pt-milestonesHeader h2 {
+  font-size: 1.4rem;
+  color: #1d4ed8;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pt-milestonesHeader h2::before {
+  content: '🌸';
+}
+
+.pt-milestonesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pt-milestoneItem {
+  width: auto;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: #e0f2fe;
+  text-align: left;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.pt-milestoneItem:hover {
+  background: #dbeafe;
+  transform: translateX(4px);
+}
+
+.pt-milestoneItem.is-active {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.pt-milestoneItem.is-active::before {
+  content: '✓';
+  margin-right: 0.5rem;
+}
+
+/* Main content */
+.pt-content {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.pt-contentHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.pt-contentBadge {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.pt-contentHeader h2 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  flex: 1;
+}
+
+.pt-contentDescription {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+}
+
+/* Warning box */
+.pt-warningBox {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-left: 4px solid #dc2626;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
+}
+
+.pt-warningHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.pt-warningIcon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(220, 38, 38, 0.2));
+}
+
+.pt-warningHeader h3 {
+  font-size: 1.2rem;
+  color: #b91c1c;
+  flex: 1;
+}
+
+.pt-warningSubtitle {
+  font-size: 0.95rem;
+  color: #7f1d1d;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.pt-warningList {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+}
+
+.pt-warningList li {
+  padding-left: 1.75rem;
+  position: relative;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #7f1d1d;
+}
+
+.pt-warningList li::before {
+  content: '⚠️';
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.pt-warningFooter {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(248, 113, 113, 0.4);
+  font-style: italic;
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+.pt-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.pt-card h3 {
+  font-size: 1.25rem;
+  color: #1d4ed8;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pt-cardSubtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+/* Action steps */
+.pt-actionList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pt-actionItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.pt-actionItem span {
+  color: #000000;
+  font-weight: 600;
+}
+
+.pt-actionItem:hover {
+  background: #e0f2fe;
+}
+
+.pt-actionCheckbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+.pt-actionItem:hover .pt-actionCheckbox {
+  border-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.pt-actionItem.is-checked .pt-actionCheckbox {
+  background: #16a34a;
+  border-color: #16a34a;
+  position: relative;
+}
+
+.pt-actionItem.is-checked .pt-actionCheckbox::after {
+  content: '✓';
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.pt-actionItem.is-checked span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.pt-completeChip {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(22, 163, 74, 0.1);
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pt-completeIcon {
+  font-size: 0.9rem;
+}
+
+/* Mood */
+.pt-moodEmojis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pt-moodEmoji {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #e0f2fe;
+  border: 3px solid transparent;
+}
+
+.pt-moodEmoji:hover {
+  transform: scale(1.08);
+  background: #dbeafe;
+}
+
+.pt-moodEmoji.is-selected {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  border-color: #38bdf8;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  transform: scale(1.05);
+}
+
+.pt-moodPrompt {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Reading cards */
+.pt-readingCard {
+  display: block;
+  background: #e0f2fe;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.pt-readingCard:hover {
+  background: #dbeafe;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.12);
+}
+
+.pt-readingTitle {
+  font-weight: 600;
+  color: #1d4ed8;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.pt-readingTime {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pt-readingTime::before {
+  content: '📖';
+}
+
+/* Animations */
+@keyframes pt-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pt-fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .pt-milestonesBar {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pt-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .pt-header h1 {
+    font-size: 2rem;
+  }
+
+  .pt-milestonesBar {
+    padding: 1.25rem 1rem;
+  }
+}
