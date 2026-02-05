@@ -1,6 +1,3 @@
-// src/pages/Advocacy.jsx
-
-
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -33,10 +30,9 @@ function getDaysInMonth(year, monthIndex) {
 }
 
 function getFirstDayOfMonth(year, monthIndex) {
-  return new Date(year, monthIndex, 1).getDay(); // 0=Sun
+  return new Date(year, monthIndex, 1).getDay();
 }
 
-// Template-based "translation" (NO AI)
 function translateToClinicalTemplate({ rawText, pain, visitDateISO, triageSymptoms = [] }) {
   const cleaned = (rawText || "").trim();
 
@@ -51,7 +47,6 @@ function translateToClinicalTemplate({ rawText, pain, visitDateISO, triageSympto
   const assoc = triageSymptoms?.length ? triageSymptoms.join(", ") : "Not provided";
   const dateLine = visitDateISO ? `Date noted: ${visitDateISO}.` : "Date not specified.";
 
-  // Keep language safe: no diagnosis, no guarantees.
   return {
     chiefComplaint: `Chief Complaint: ${chiefComplaint}`,
     hpi: `HPI: ${hpi}\nPain: ${pain}/10. ${dateLine}`,
@@ -82,8 +77,6 @@ function buildProviderNoteText(t) {
 export default function Advocacy() {
   const location = useLocation();
 
-  // Optional prefill from Symptom Checker (Angel’s page):
-  // navigate("/advocacy", { state: { triageSymptoms: [...], pain: 7, narrative: "..." } })
   const incoming = location.state || {};
   const incomingSymptoms = Array.isArray(incoming.triageSymptoms) ? incoming.triageSymptoms : [];
   const incomingPain = typeof incoming.pain === "number" ? incoming.pain : 6;
@@ -182,7 +175,6 @@ export default function Advocacy() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] px-4 py-6 md:px-6">
       <div className="mx-auto max-w-6xl">
-        {/* Page header */}
         <div className="mb-6">
           <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#0F172A]">
             Self-Advocacy Tools
@@ -196,7 +188,6 @@ export default function Advocacy() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left: Form */}
           <section className="lg:col-span-6 rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
             <div className="flex items-center gap-2 mb-4">
               <Icon name="edit_note" className="text-[#2563EB]" />
@@ -228,9 +219,7 @@ export default function Advocacy() {
               </div>
             )}
 
-            {/* Date + Pain */}
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Date picker trigger */}
               <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -248,7 +237,6 @@ export default function Advocacy() {
                 </div>
               </div>
 
-              {/* Pain slider */}
               <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-bold text-[#0F172A]">Pain level</p>
@@ -273,7 +261,6 @@ export default function Advocacy() {
               </div>
             </div>
 
-            {/* Translate button */}
             <button
               type="button"
               onClick={handleTranslate}
@@ -284,9 +271,7 @@ export default function Advocacy() {
             </button>
           </section>
 
-          {/* Right: Provider summary + Scripts */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Provider Summary */}
             <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-2">
@@ -329,7 +314,6 @@ export default function Advocacy() {
               </p>
             </section>
 
-            {/* Script cards */}
             <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Icon name="campaign" className="text-[#2563EB]" />
@@ -357,7 +341,6 @@ export default function Advocacy() {
         </div>
       </div>
 
-      {/* Calendar popup */}
       {calendarOpen && (
         <div className="fixed inset-0 z-50">
           <button

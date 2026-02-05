@@ -1,8 +1,4 @@
-// src/pages/Education.jsx
-
 import React, { useMemo, useState } from "react";
-
-// --- Data (MVP hardcoded) -----------------------------------------------------
 
 const TOPICS = [
   "All Topics",
@@ -14,7 +10,6 @@ const TOPICS = [
   "Mental Wellness",
 ];
 
-// 9 items so Load More is visible initially (shows 6 then more)
 const RESOURCE_ITEMS = [
   {
     id: "r1",
@@ -88,7 +83,6 @@ const RESOURCE_ITEMS = [
       ],
     },
   },
-  // extra resources for filters + load more
   {
     id: "r4",
     topic: "Patient Advocacy",
@@ -236,7 +230,6 @@ const RESOURCE_ITEMS = [
   },
 ];
 
-// Featured config matching your hero design
 const FEATURED = {
   tag: "Top Advocacy",
   readTime: "12 min read",
@@ -258,8 +251,6 @@ const FEATURED = {
     ],
   },
 };
-
-// --- Components --------------------------------------------------------------
 
 function MaterialIcon({ name, className = "" }) {
   return <span className={`material-symbols-outlined ${className}`}>{name}</span>;
@@ -378,7 +369,6 @@ function AIAssistant({ open, onClose }) {
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI response
     setTimeout(() => {
       const responses = [
         "That's a great question. Let me help you find the right resources. I recommend checking out our 'Identifying Postpartum Warning Signs' article in the Health Risks section.",
@@ -402,7 +392,6 @@ function AIAssistant({ open, onClose }) {
 
   return (
     <div className="fixed bottom-24 right-8 w-96 max-w-[calc(100vw-4rem)] rounded-2xl border border-[#E2E8F0] bg-white shadow-xl z-50 flex flex-col max-h-[600px]">
-      {/* Header */}
       <div className="p-4 border-b border-[#E2E8F0] flex items-center justify-between bg-[#2563EB] rounded-t-2xl">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -422,7 +411,6 @@ function AIAssistant({ open, onClose }) {
         </button>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#F8FAFC]">
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
@@ -459,7 +447,6 @@ function AIAssistant({ open, onClose }) {
         )}
       </div>
 
-      {/* Input */}
       <div className="p-4 border-t border-[#E2E8F0] bg-white rounded-b-2xl">
         <div className="flex gap-2">
           <input
@@ -485,12 +472,10 @@ function AIAssistant({ open, onClose }) {
   );
 }
 
-// --- Page --------------------------------------------------------------------
-
 export default function Education() {
   const [search, setSearch] = useState("");
   const [activeTopic, setActiveTopic] = useState("All Topics");
-  const [viewMode, setViewMode] = useState("grid"); // "grid" | "list"
+  const [viewMode, setViewMode] = useState("grid");
   const [visibleCount, setVisibleCount] = useState(6);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -535,7 +520,6 @@ export default function Education() {
     setVisibleCount((c) => Math.min(filtered.length, c + 6));
   }
 
-  // Trending (static MVP)
   const trending = [
     { tag: "#MentalHealthMatters", views: "2.4k views" },
     { tag: "#BirthEquity", views: "1.8k views" },
@@ -544,7 +528,6 @@ export default function Education() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      {/* Header (your design) */}
       <header className="sticky top-0 z-50 w-full bg-white border-b border-[#E2E8F0] h-16 shadow-sm">
         <div className="max-w-[1440px] mx-auto h-full px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
@@ -603,7 +586,6 @@ export default function Education() {
       </header>
 
       <main className="max-w-[1440px] mx-auto px-6 py-6">
-        {/* Search Section */}
         <section className="mb-10">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h1 className="text-4xl font-extrabold mb-4 tracking-tight text-[#0F172A]">
@@ -647,7 +629,6 @@ export default function Education() {
           />
         </section>
 
-        {/* Medical Disclaimer */}
         <div className="mb-10 bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3 shadow-sm">
           <MaterialIcon name="info" className="text-[#F59E0B]" />
           <div>
@@ -660,9 +641,7 @@ export default function Education() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left column */}
           <div className="flex-1 space-y-10">
-            {/* Featured Spotlight */}
             <section>
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-[#0F172A]">Featured Spotlight</h2>
@@ -710,7 +689,6 @@ export default function Education() {
               </div>
             </section>
 
-            {/* Latest Resources */}
             <section>
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-[#0F172A]">Latest Resources</h2>
@@ -817,7 +795,6 @@ export default function Education() {
             </section>
           </div>
 
-          {/* Right sidebar */}
           <aside className="w-full lg:w-[320px] shrink-0 space-y-6">
             <div className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
               <div className="flex items-center gap-3 mb-4">
@@ -896,7 +873,6 @@ export default function Education() {
         </div>
       </main>
 
-      {/* Floating AI Assistant button */}
       <button
         type="button"
         onClick={() => setChatOpen(!chatOpen)}
@@ -906,10 +882,8 @@ export default function Education() {
         <MaterialIcon name="psychology" className="text-2xl" />
       </button>
 
-      {/* AI Assistant */}
       <AIAssistant open={chatOpen} onClose={() => setChatOpen(false)} />
 
-      {/* Modal */}
       <ResourceModal
         open={modalOpen}
         onClose={() => {
