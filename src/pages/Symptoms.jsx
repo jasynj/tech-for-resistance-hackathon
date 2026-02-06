@@ -33,12 +33,12 @@ const Symptoms = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-3">Early Warning Symptom Checker</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-[#0F172A] mb-3">Symptom Checker</h1>
           <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
-            Select all symptoms that apply to you right now. Trust your body—if something feels wrong, it matters.
+            Your symptoms are valid. Your concerns matter. Trust your body, if something feels wrong, speak up and demand to be heard.
           </p>
           <div className="inline-block mt-4 px-4 py-2 bg-white border border-[#E2E8F0] text-[#2563EB] rounded-full text-sm font-semibold">
-            Module 1: Triage
+            Triage
           </div>
         </div>
 
@@ -69,10 +69,10 @@ const Symptoms = () => {
                     onChange={() => toggleSymptom(symptom.id)}
                   />
                   <div className="flex-1">
-                    <div className="font-medium text-[#0F172A]">{symptom.label.split(' (')[0]}</div>
-                    {symptom.label.includes('(') && (
+                    <div className="font-medium text-[#0F172A]">{symptom.label}</div>
+                    {symptom.description && (
                       <div className="text-sm text-[#64748B] mt-0.5">
-                        {symptom.label.match(/\((.*?)\)/)?.[1]}
+                        {symptom.description}
                       </div>
                     )}
                   </div>
@@ -202,15 +202,15 @@ const Symptoms = () => {
               <div className="flex gap-5">
                 <div className="flex-shrink-0">
                   <img 
-                    src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=100&h=100&fit=crop&crop=face" 
-                    alt="Healthcare professional"
+                    src="./istockphoto-1467252717-612x612.jpg" 
+                    alt="Black woman healthcare advocate"
                     className="w-14 h-14 rounded-full object-cover border border-[#E2E8F0]"
                   />
                 </div>
                 <div>
                   <h4 className="font-bold text-[#0F172A] text-lg mb-2">Know your rights</h4>
                   <p className="text-[#64748B] text-sm leading-relaxed mb-4">
-                    You know your body best. If you feel dismissed, use the "Advocacy Report" to show a documented timeline of your symptoms. Ask the provider to document specifically <em className="font-medium">why</em> they might be ruling out your concerns.
+                    Black women are 3x more likely to die from pregnancy-related causes. You deserve to be heard. If you feel dismissed, use the "Advocacy Report" to document your symptoms. Ask your provider to note in your chart <em className="font-medium">why</em> they are ruling out your concerns.
                   </p>
                   <a 
                     href="/advocacy" 
