@@ -69,7 +69,7 @@ const RESOURCE_ITEMS = [
     desc:
       "Holistic basics for early recovery: rest, hydration, nutrition, and pacing. Not medical treatment guidance.",
     img:
-      "https://images.pexels.com/photos/7089332/pexels-photo-7089332.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
+      "https://images.pexels.com/photos/7990609/pexels-photo-7990609.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
     body: {
       bullets: [
         "Prioritize rest and hydration when possible—small steps matter.",
@@ -141,7 +141,7 @@ const RESOURCE_ITEMS = [
     desc:
       "Nutrition basics that support recovery. Always confirm personal needs with your provider.",
     img:
-      "https://images.pexels.com/photos/6991894/pexels-photo-6991894.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
+      "https://images.pexels.com/photos/5853820/pexels-photo-5853820.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
     body: {
       bullets: [
         "Small, consistent meals can help stabilize energy.",
