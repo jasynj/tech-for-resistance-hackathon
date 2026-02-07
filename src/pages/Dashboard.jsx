@@ -1,23 +1,8 @@
+import { Link } from 'react-router-dom';
+
 function Dashboard() {
   return (
     <div className="mx-auto w-full max-w-6xl space-y-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="relative flex-1">
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#64748B]">
-            search
-          </span>
-          <input
-            className="w-full rounded-full border border-[#E2E8F0] bg-white py-3 pl-12 pr-4 text-sm text-[#0F172A] placeholder:text-[#64748B] shadow-sm"
-            placeholder="Search resources, symptoms, or community posts..."
-            type="text"
-          />
-        </div>
-        <button className="inline-flex items-center justify-center rounded-full border border-[#E2E8F0] bg-white px-4 py-3 text-sm font-semibold text-[#0F172A] shadow-sm">
-          <span className="material-symbols-outlined text-[#64748B] text-base mr-2">notifications</span>
-          Notifications
-        </button>
-      </div>
-
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
@@ -56,10 +41,13 @@ function Dashboard() {
               Don&apos;t ignore the signs. Check your symptoms against our equity-focused database designed for
               Black maternal health.
             </p>
-            <button className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-5 py-3 text-sm font-semibold text-white hover:bg-[#1D4ED8]">
+            <Link
+              to="/symptoms"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-5 py-3 text-sm font-semibold text-white hover:bg-[#1D4ED8]"
+            >
               Start Symptom Check
               <span className="material-symbols-outlined text-base">arrow_forward</span>
-            </button>
+            </Link>
           </section>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -70,10 +58,13 @@ function Dashboard() {
               </div>
               <h3 className="mt-3 text-lg font-bold text-[#0F172A]">Pediatrician Visit</h3>
               <p className="mt-1 text-sm text-[#64748B]">Upcoming on Oct 24th, 10:00 AM</p>
-              <button className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2 text-sm font-semibold text-[#0F172A]">
+              <Link
+                to="/timeline"
+                className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2 text-sm font-semibold text-[#0F172A] hover:bg-[#F8FAFC]"
+              >
                 View details
                 <span className="material-symbols-outlined text-base">arrow_forward</span>
-              </button>
+              </Link>
             </section>
 
             <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
@@ -85,9 +76,12 @@ function Dashboard() {
               <p className="mt-1 text-sm text-[#64748B]">
                 Log your recent provider interactions to keep track of your care quality.
               </p>
-              <button className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2 text-sm font-semibold text-[#0F172A]">
+              <Link
+                to="/advocacy"
+                className="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2 text-sm font-semibold text-[#0F172A] hover:bg-[#F8FAFC]"
+              >
                 Log New Interaction
-              </button>
+              </Link>
             </section>
           </div>
         </div>

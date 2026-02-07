@@ -24,7 +24,7 @@ function initChecklistMap(items) {
 }
 
 export default function CareTimeline() {
-    const [selectedId, setSelectedId] = useState(MILESTONES[0]?.id ?? 'week1');
+    const [selectedId, setSelectedId] = useState('week4');
     const [checkedMap, setCheckedMap] = useState(() => initChecklistMap(ACTION_CHECKLIST_ITEMS));
     const [mood, setMood] = useState(null);
 
@@ -141,6 +141,31 @@ export default function CareTimeline() {
                         </div>
                     </section>
 
+                    <section className="pt-moodCard" style={{ marginBottom: '2rem' }}>
+                    <div className="pt-moodHeader">
+                        <h2>Mood Check-in</h2>
+                        <span className="pt-moodSubtitle">How are you feeling?</span>
+                    </div>
+                    <div className="pt-moodRow" role="radiogroup" aria-label="Mood selection">
+                        {MOOD_OPTIONS.map((option) => {
+                            const selected = option.id === mood;
+                            return (
+                                <button
+                                    key={option.id}
+                                    type="button"
+                                    className={`pt-moodEmoji ${selected ? 'is-selected' : ''}`}
+                                    onClick={() => setMood(option.id)}
+                                    aria-pressed={selected}
+                                    title={option.label}
+                                >
+                                    {option.emoji}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </section>
+
+
                     {/* Current stage card */}
                     <main className="pt-content">
                         <div className="pt-contentHeader">
@@ -168,30 +193,6 @@ export default function CareTimeline() {
                             </div>
                         ) : null}
                     </main>
-
-                    {/* Mood check-in (below current stage) */}
-                    <section className="pt-card">
-                        <h3>💭 Mood Check-in</h3>
-                        <p className="pt-cardSubtitle">How are you feeling?</p>
-                        <div className="pt-moodEmojis" role="radiogroup" aria-label="Mood selection">
-                            {MOOD_OPTIONS.map((option) => {
-                                const selected = option.id === mood;
-                                return (
-                                    <button
-                                        key={option.id}
-                                        type="button"
-                                        className={`pt-moodEmoji ${selected ? 'is-selected' : ''}`}
-                                        onClick={() => setMood(option.id)}
-                                        aria-pressed={selected}
-                                        title={option.label}
-                                    >
-                                        {option.emoji}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                        <p className="pt-moodPrompt">Tap to record how you&apos;re feeling today</p>
-                    </section>
 
                     {/* Action steps */}
                     <section className="pt-card">

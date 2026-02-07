@@ -24,6 +24,14 @@ export const MILESTONES = [
         showPreeclampsiaWarning: true,
     },
     {
+        id: 'week4',
+        label: 'Week 4',
+        title: 'Week 4: Gaining momentum',
+        description:
+            'You may be settling into a routine, but recovery is still happening. Watch for delayed warning signs like headaches, swelling, or mood changes. Keep tracking symptoms and don\'t skip follow-ups—your body is still healing even when you feel stronger.',
+        showPreeclampsiaWarning: true,
+    },
+    {
         id: 'week6',
         label: 'Week 6',
         title: 'Week 6: Postpartum visit and next steps',

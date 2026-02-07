@@ -1,28 +1,25 @@
-/* Root layout */
+/* Root layout – matches other pages (AppLayout provides bg) */
 .pt-page {
-  min-height: 100vh;
-  background: #ffffff;
   color: #0f172a;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .pt-container {
-  max-width: 1400px;
+  max-width: 72rem;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 0;
 }
 
 /* Header */
 .pt-header {
   text-align: center;
   margin-bottom: 3rem;
-  animation: pt-fadeInDown 0.6s ease-out;
 }
 
 .pt-header h1 {
   font-size: 2.6rem;
   font-weight: 800;
-  color: #1d4ed8;
+  color: #0f172a;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
@@ -36,10 +33,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: #e0f2fe;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
   margin-top: 1.5rem;
   font-size: 0.95rem;
   color: #0f172a;
@@ -51,7 +48,7 @@
 }
 
 .pt-progressIndicator strong {
-  color: #1d4ed8;
+  color: #2563eb;
 }
 
 /* Vertical layout */
@@ -59,20 +56,20 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  animation: pt-fadeIn 0.8s ease-out 0.2s both;
 }
 
 /* Milestones bar */
 .pt-milestonesBar {
-  background: #e0f2fe;
-  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .pt-milestonesHeader h2 {
   font-size: 1.4rem;
-  color: #1d4ed8;
+  color: #2563eb;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -94,17 +91,17 @@
   padding: 1rem 1.25rem;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  background: #e0f2fe;
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
   text-align: left;
   font-weight: 600;
   color: #0f172a;
 }
 
 .pt-milestoneItem:hover {
-  background: #dbeafe;
-  transform: translateX(4px);
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .pt-milestoneItem.is-active {
@@ -121,10 +118,11 @@
 
 /* Main content */
 .pt-content {
-  background: #e0f2fe;
-  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 2.5rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .pt-contentHeader {
@@ -226,15 +224,16 @@
 }
 
 .pt-card {
-  background: #e0f2fe;
-  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .pt-card h3 {
   font-size: 1.25rem;
-  color: #1d4ed8;
+  color: #2563eb;
   margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
@@ -274,7 +273,7 @@
 }
 
 .pt-actionItem:hover {
-  background: #e0f2fe;
+  background: #f8fafc;
 }
 
 .pt-actionCheckbox {
@@ -347,14 +346,15 @@
   font-size: 2.2rem;
   border-radius: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: #e0f2fe;
-  border: 3px solid transparent;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
 }
 
 .pt-moodEmoji:hover {
   transform: scale(1.08);
-  background: #dbeafe;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .pt-moodEmoji.is-selected {
@@ -370,29 +370,79 @@
   text-align: center;
 }
 
+/* Mood check-in – same size, length and width as milestones bar */
+.pt-moodCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.pt-moodHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pt-moodHeader h2 {
+  font-size: 1.4rem;
+  color: #2563eb;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pt-moodHeader h2::before {
+  content: '💭';
+}
+
+.pt-moodSubtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.pt-moodRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pt-moodCard .pt-moodEmoji {
+  width: auto;
+  min-width: 2.75rem;
+  padding: 1rem 1.25rem;
+  aspect-ratio: 1;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
 /* Reading cards */
 .pt-readingCard {
   display: block;
-  background: #e0f2fe;
+  background: #f8fafc;
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 0.75rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid #e2e8f0;
   text-decoration: none;
 }
 
 .pt-readingCard:hover {
-  background: #dbeafe;
+  background: #f1f5f9;
   border-color: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
 .pt-readingTitle {
   font-weight: 600;
-  color: #1d4ed8;
+  color: #2563eb;
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
@@ -409,34 +459,10 @@
   content: '📖';
 }
 
-/* Animations */
-@keyframes pt-fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pt-fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Responsive */
 @media (max-width: 1200px) {
-  .pt-milestonesBar {
+  .pt-milestonesBar,
+  .pt-moodCard {
     padding: 1.25rem 1.5rem;
   }
 }
@@ -450,7 +476,8 @@
     font-size: 2rem;
   }
 
-  .pt-milestonesBar {
+  .pt-milestonesBar,
+  .pt-moodCard {
     padding: 1.25rem 1rem;
   }
 }
