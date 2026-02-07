@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import profilePic from '../assets/profile pic.jpg';
 
 function Dashboard() {
   return (
@@ -6,7 +7,14 @@ function Dashboard() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">Welcome back, Maya.</h1>
+            <div className="flex items-center gap-3">
+              <img
+                src={profilePic}
+                alt="User avatar"
+                className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-[#E2E8F0] bg-white object-cover"
+              />
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">Welcome back, Maya.</h1>
+            </div>
             <p className="mt-2 text-[#64748B]">
               You are doing great. Remember to take it one day at a time. Your health is a priority.
             </p>

@@ -528,63 +528,6 @@ export default function Education() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-[#E2E8F0] h-16 shadow-sm">
-        <div className="max-w-[1440px] mx-auto h-full px-6 flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2 cursor-pointer" role="button" tabIndex={0}>
-              <div className="bg-[#2563EB] p-1.5 rounded-lg">
-                <MaterialIcon name="school" className="text-white text-2xl" />
-              </div>
-              <span className="text-xl font-extrabold tracking-tight text-[#0F172A]">EduHub</span>
-            </div>
-
-            <nav className="hidden md:flex items-center gap-6">
-              <button type="button" className="text-sm font-semibold text-[#2563EB]">
-                Resources
-              </button>
-              <button
-                type="button"
-                className="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition-colors"
-                onClick={() => alert("Demo: Vitals tab is out of scope for MVP.")}
-              >
-                Vitals
-              </button>
-              <button
-                type="button"
-                className="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition-colors"
-                onClick={() => alert("Demo: Community tab is out of scope for MVP.")}
-              >
-                Community
-              </button>
-              <button
-                type="button"
-                className="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition-colors"
-                onClick={() => alert("Demo: Advocacy is available via the Advocacy page in the app navigation.")}
-              >
-                Advocacy
-              </button>
-            </nav>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <button className="p-2 text-[#64748B] hover:bg-[#F8FAFC] rounded-full transition-colors" type="button">
-              <MaterialIcon name="notifications" />
-            </button>
-
-            <div className="flex items-center gap-2 pl-4 border-l border-[#E2E8F0]">
-              <div className="w-8 h-8 rounded-full bg-[#E2E8F0] overflow-hidden">
-                <img
-                  alt="User"
-                  className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRvXbqnjkAYCQjLSh9snvwLhuFt7_44T-JwkcXUXOQdqgMUOFTQTmDXkv-sWuSL6_cGKx1zlCVSmGOsUcfbwPMKWlj2A0SyQFwvsmxASlEyQQHYV3dG4e7lOVTr6HXKKHZvnB0P2y3IpsWm2vmLBHa8cVvV0KsvEtyIyEIXaJmvKYJIJ1AEnTz6iaDgDnvlrjjvGbTEZpTDzEebBWN1YztS52VdUfJm2qXoYDYeWqFGArFy0OvgSiEOxtDaCkIx7nupAgEU4C4m3Y"
-                />
-              </div>
-              <span className="text-sm font-semibold hidden lg:block text-[#0F172A]">Sarah Johnson</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="max-w-[1440px] mx-auto px-6 py-6">
         <section className="mb-10">
           <div className="max-w-3xl mx-auto text-center mb-8">

@@ -152,22 +152,22 @@ export default function Advocacy() {
   const scripts = [
     {
       title: "If a test is denied",
-      body: "“Please document in my chart that you are declining this test, and explain why. What alternative evaluation can we do today?”",
+      body: "Please document in my chart that you are declining this test, and explain why. What alternative evaluation can we do today?",
       icon: "block",
     },
     {
       title: "Clarifying risks",
-      body: "“What are the risks if we wait versus acting now? What warning signs mean I should seek urgent care?”",
+      body: "What are the risks if we wait versus acting now? What warning signs mean I should seek urgent care?",
       icon: "question_mark",
     },
     {
       title: "Pain management",
-      body: "“My pain is affecting my ability to function. What options are available to manage it safely today?”",
       icon: "health_and_safety",
+      body: "My pain is affecting my ability to function. What options are available to manage it safely today?",
     },
     {
       title: "Second opinion",
-      body: "“I’d like a second opinion to feel confident in this plan. Who can we consult today?”",
+      body: "I’d like a second opinion to feel confident in this plan. Who can we consult today?",
       icon: "record_voice_over",
     },
   ];
@@ -180,11 +180,17 @@ export default function Advocacy() {
             Self-Advocacy Tools
           </h1>
           <p className="mt-2 text-sm md:text-base text-[#64748B] max-w-3xl">
-            Document your symptoms clearly and generate a short provider-ready summary.{" "}
-            <span className="font-semibold">
-              Not medical advice. If you feel you may be in danger, call 911 or seek emergency care.
-            </span>
+            Document your symptoms clearly and generate a short provider-ready summary.
           </p>
+          <div className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3 shadow-sm max-w-3xl">
+            <Icon name="info" className="text-[#F59E0B]" />
+            <div>
+              <h4 className="text-sm font-bold text-amber-900">Medical Disclaimer</h4>
+              <p className="text-sm text-amber-800/90">
+                Not medical advice. If you feel you may be in danger, call 911 or seek emergency care.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -309,9 +315,15 @@ export default function Advocacy() {
                 </div>
               )}
 
-              <p className="mt-4 text-xs text-[#64748B] font-medium">
-                Not medical advice. If you feel you may be in danger, call 911 or seek emergency care.
-              </p>
+              <div className="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-2 shadow-sm">
+                <Icon name="info" className="text-[#F59E0B] text-lg" />
+                <div>
+                  <h4 className="text-xs font-bold text-amber-900">Medical Disclaimer</h4>
+                  <p className="text-xs text-amber-800/90">
+                    Not medical advice. If you feel you may be in danger, call 911 or seek emergency care.
+                  </p>
+                </div>
+              </div>
             </section>
 
             <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">

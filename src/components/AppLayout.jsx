@@ -1,7 +1,11 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import profilePic from '../assets/profile pic.jpg';
 
 function AppLayout() {
+  const navLinkClass = ({ isActive }) =>
+    isActive ? 'text-[#2563EB] hover:text-[#1D4ED8]' : 'text-[#64748B] hover:text-[#0F172A]';
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
       <header className="sticky top-0 z-40 bg-white border-b border-[#E2E8F0]">
@@ -11,21 +15,26 @@ function AppLayout() {
             <div className="font-extrabold tracking-tight text-lg">MayaCare</div>
           </div>
           <nav className="flex flex-wrap items-center gap-3 text-sm font-semibold">
-            <Link className="text-[#2563EB] hover:text-[#1D4ED8]" to="/dashboard">
+            <NavLink className={navLinkClass} to="/dashboard">
               Dashboard
-            </Link>
-            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/symptoms">
+            </NavLink>
+            <NavLink className={navLinkClass} to="/symptoms">
               Symptoms
-            </Link>
-            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/timeline">
+            </NavLink>
+            <NavLink className={navLinkClass} to="/timeline">
               Timeline
-            </Link>
-            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/advocacy">
+            </NavLink>
+            <NavLink className={navLinkClass} to="/advocacy">
               Advocacy
-            </Link>
-            <Link className="text-[#64748B] hover:text-[#0F172A]" to="/education">
+            </NavLink>
+            <NavLink className={navLinkClass} to="/education">
               Education
-            </Link>
+            </NavLink>
+            <img
+              src={profilePic}
+              alt="User avatar"
+              className="ml-2 h-8 w-8 rounded-full border border-[#E2E8F0] bg-white object-cover"
+            />
           </nav>
         </div>
       </header>
