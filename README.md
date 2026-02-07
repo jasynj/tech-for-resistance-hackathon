@@ -5,7 +5,7 @@
 
 ---
 
-## The Problem
+## The Gap
 In the United States, **Black mothers are 3x more likely to die** from pregnancy-related complications than white mothers.
 * **80%** of these deaths are preventable.
 * Education is not a shield: A Black woman with a Master's degree is at higher risk than a white woman with a high school diploma.
@@ -32,7 +32,7 @@ For this hackathon, we prioritized **Accessibility**, **Speed**, and **Data Priv
 
 ---
 
-## 📸 Features & Demo
+##  Features
 
 ### 1. Privacy-First Dashboard
 A calm, clutter-free interface that respects the user's mental load.
@@ -46,7 +46,7 @@ Visualizing the "danger zones" of the 4th trimester so mothers aren't caught off
 
 ---
 
-## 🚀 Getting Started
+## Running Locally
 
 To run MayaCare locally, follow these steps:
 
