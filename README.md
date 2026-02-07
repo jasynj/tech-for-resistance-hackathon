@@ -58,8 +58,8 @@ To run MayaCare locally, follow these steps:
 
 1.  **Clone the repository**
     ```bash
-    git clone [replace with git link]
-    cd [repo name/folder name]
+    git clone(https://github.com/jasynj/tech-for-resistance-hackathon.git)
+    cd tech-for-resistance-hackathon
     ```
 
 2.  **Install dependencies**
@@ -77,9 +77,14 @@ To run MayaCare locally, follow these steps:
 
 ---
 
-## What's Next? (Roadmap)
-* **Phase 2 (Integration):** Implement FHIR standards to push "Advocacy Reports" directly to hospital EHR systems (Epic/Cerner).
-* **Phase 3 (Intelligence):** Integrate wearable API (Apple Watch/Fitbit) for passive heart rate and blood pressure monitoring.
+##  Roadmap: Scaling for Equity
+We are dismantling systemic barriers.
+
+| Phase | Focus | Problem Solved |
+| :--- | :--- | :--- |
+| **Phase 1: Launch (MVP)** | **Triage & Advocacy** | **Bias & Weathering.** Empowers mothers to identify risks early and speak up effectively in the exam room. |
+| **Phase 2: Integration** | **Provider Bridge** | **Care Deserts.** Leveraging FHIR standards and Telehealth to connect mothers in remote areas directly to specialists. |
+| **Phase 3: Expansion** | **Community & Coverage** | **Access & Financial Barriers.** AI-matched insurance guidance and integration with low-cost Doula networks to ensure income doesn't determine survival. |
 
 ---
 
