@@ -5,6 +5,7 @@ import Symptoms from './pages/Symptoms';
 import CareTimeline from './pages/CareTimeline';
 import Advocacy from './pages/Advocacy';
 import Education from './pages/Education';
+import Emergency from './pages/Emergency';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="timeline" element={<CareTimeline />} />
           <Route path="advocacy" element={<Advocacy />} />
           <Route path="education" element={<Education />} />
+          <Route path="emergency" element={<Emergency />} />
         </Route>
       </Routes>
     </BrowserRouter>

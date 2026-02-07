@@ -126,9 +126,12 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <button className="mt-5 w-full rounded-xl bg-[#DC2626] px-4 py-3 text-sm font-semibold text-white hover:bg-[#B91C1C]">
+            <Link
+              to="/emergency"
+              className="mt-5 w-full inline-flex items-center justify-center rounded-xl bg-[#DC2626] px-4 py-3 text-sm font-semibold text-white hover:bg-[#B91C1C]"
+            >
               Call Provider Now
-            </button>
+            </Link>
           </section>
 
           <section className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm p-6">
