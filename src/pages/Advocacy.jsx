@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function Icon({ name, className = "" }) {
@@ -33,16 +33,31 @@ function getFirstDayOfMonth(year, monthIndex) {
   return new Date(year, monthIndex, 1).getDay();
 }
 
-function translateToClinicalTemplate({ rawText, pain, visitDateISO, triageSymptoms = [] }) {
+function translateToClinicalTemplate({
+  rawText,
+  pain,
+  visitDateISO,
+  triageSymptoms = [],
+  triageLabel = "",
+  triageReasons = [],
+}) {
   const cleaned = (rawText || "").trim();
 
   const chiefComplaint = cleaned
     ? cleaned.split("\n")[0].slice(0, 140)
     : "Postpartum concerns; requesting evaluation.";
 
-  const hpi = cleaned
+  const hpiBase = cleaned
     ? cleaned
     : "Patient reports postpartum concerns and requests evaluation and guidance.";
+
+  const triageLine = triageLabel ? `Triage result: ${triageLabel}.` : "";
+  const reasonsLine =
+    Array.isArray(triageReasons) && triageReasons.length
+      ? `Flags noted: ${triageReasons.join("; ")}.`
+      : "";
+
+  const hpi = [hpiBase, triageLine, reasonsLine].filter(Boolean).join("\n");
 
   const assoc = triageSymptoms?.length ? triageSymptoms.join(", ") : "Not provided";
   const dateLine = visitDateISO ? `Date noted: ${visitDateISO}.` : "Date not specified.";
@@ -81,6 +96,9 @@ export default function Advocacy() {
   const incomingSymptoms = Array.isArray(incoming.triageSymptoms) ? incoming.triageSymptoms : [];
   const incomingPain = typeof incoming.pain === "number" ? incoming.pain : 6;
   const incomingNarrative = typeof incoming.narrative === "string" ? incoming.narrative : "";
+  const incomingAutoTranslate = Boolean(incoming.autoTranslate);
+  const incomingTriageLabel = typeof incoming.triageLabel === "string" ? incoming.triageLabel : "";
+  const incomingTriageReasons = Array.isArray(incoming.triageReasons) ? incoming.triageReasons : [];
 
   const [symptomText, setSymptomText] = useState(incomingNarrative);
   const [pain, setPain] = useState(clamp(incomingPain, 0, 10));
@@ -121,15 +139,27 @@ export default function Advocacy() {
     return buildProviderNoteText(template);
   }, [template]);
 
+  const didAutoTranslate = useRef(false);
+
   function handleTranslate() {
     const t = translateToClinicalTemplate({
       rawText: symptomText,
       pain,
       visitDateISO,
       triageSymptoms,
+      triageLabel: incomingTriageLabel,
+      triageReasons: incomingTriageReasons,
     });
     setTemplate(t);
   }
+
+  useEffect(() => {
+    if (!incomingAutoTranslate) return;
+    if (didAutoTranslate.current) return;
+    didAutoTranslate.current = true;
+    handleTranslate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [incomingAutoTranslate]);
 
   async function handleCopy() {
     if (!providerNote) return;

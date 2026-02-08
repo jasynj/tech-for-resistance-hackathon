@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { SYMPTOM_DATA } from '../data/symptoms';
 import { calculateRisk } from '../utils/triage';
 
+const SYMPTOM_LABEL_BY_ID = Object.fromEntries(
+  SYMPTOM_DATA.flatMap((group) => group.items).map((s) => [s.id, s.label]),
+);
+
 const Symptoms = () => {
   const navigate = useNavigate();
   
@@ -23,8 +27,27 @@ const Symptoms = () => {
   };
 
   const handleAdvocacyRoute = () => {
-    navigate('/advocacy', { 
-      state: { symptoms: selectedSymptoms, pain: painLevel, risk: result?.level } 
+    const triageSymptoms = selectedSymptoms.map((id) => SYMPTOM_LABEL_BY_ID[id] ?? id);
+    const triageReasons = Array.isArray(result?.reasons) ? result.reasons : [];
+
+    const triageLabel = typeof result?.label === 'string' ? result.label : '';
+    const triageLevel = typeof result?.level === 'string' ? result.level : '';
+
+    const narrative = triageSymptoms.length
+      ? `Postpartum symptom check flagged: ${triageSymptoms.join(', ')}.`
+      : '';
+
+    navigate('/advocacy', {
+      state: {
+        from: 'symptoms',
+        autoTranslate: true,
+        triageSymptoms,
+        pain: painLevel,
+        triageLevel,
+        triageLabel,
+        triageReasons,
+        narrative,
+      },
     });
   };
 
